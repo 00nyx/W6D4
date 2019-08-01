@@ -16,7 +16,7 @@ class User < ApplicationRecord
     class_name: :ArtworkShare,
     dependent: :destroy
 
-  has_one :artist,
+  has_many :artisted_arts,
     foreign_key: :artist_id,
     class_name: :Artwork,
     dependent: :destroy
@@ -25,4 +25,9 @@ class User < ApplicationRecord
     through: :viewers,
     source: :artwork
     
+  has_many :comments,
+    foreign_key: :user_id,
+    class_name: :Comment,
+    dependent: :destroy
+
 end

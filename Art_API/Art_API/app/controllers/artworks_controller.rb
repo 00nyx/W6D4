@@ -3,6 +3,8 @@ class ArtworksController < ApplicationController
   def index
     if params.has_key?(:user_id)
       artworks = Artwork.where(artist_id: params[:user_id])
+    elsif params.has_key?(:artwork_id)
+      artworks = Artwork.where(artist_id: params[:artwork_id])
     else
       artworks = Artwork.all
     end

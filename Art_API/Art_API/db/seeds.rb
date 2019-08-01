@@ -5,9 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-User.destroy_all
-Artwork.destroy_all
 ArtworkShare.destroy_all
+Artwork.destroy_all
+User.destroy_all
 
 
 
@@ -24,3 +24,5 @@ artworkshares = ArtworkShare.create([
   {artwork_id: a2.id, viewer_id: u1.id},
   {artwork_id: a3.id, viewer_id: u3.id}
 ])
+
+c1 = Comment.create()
