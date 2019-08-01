@@ -1,0 +1,10 @@
+Overview
+You almost always start with the data layer when you're thinking about adding functionality. Questions to consider include the following: What pieces of data are necessary to implement the functionality you need? What changes need to be made to the database schema? What models do you need? What associations and validations?
+
+In this first phase we're going to add the tables for users, artworks, and artwork shares. We are also going to write validations and associations linking them.
+
+Instructions
+User
+For the user table you should have name and email columns from the first routes project. Change your User model so that you only have one column: username. Write new migrations to accomplish this. Enforce presence and uniqueness of username at both ActiveRecord and DB levels.
+
+After you create each table and model, make sure to test that your associations and validations are working before moving on to the next step. We want to be absolutely sure our code is working before we move on to the next phase, otherwise building our API endpoints will be needlessly complicated.
