@@ -5,18 +5,22 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+User.destroy_all
+Artwork.destroy_all
+ArtworkShare.destroy_all
 
-users = User.create(
-  [{username: 'Haadi'},
-  {username: 'Gabriel'}]
-)
 
-artworks = Artwork.create(
-  [{title: 'bob', image_url: 'www.bob_art.com', artist_id: 1},
-  {title: 'Bob', image_url: 'www.Bob_art.com', artist_id: 2}]
-)
 
-artworkshares = ArtworkShare.create(
-  [{artwork_id: 1, viewer_id: 2},
-  {artwork_id: 2, viewer_id: 1}]
-)
+u1 = User.create(username: 'Haadi')
+u2 = User.create(username: 'Alissa')
+u3 = User.create(username: 'Gabriel')
+
+a1 = Artwork.create(title: 'bob', image_url: 'www.bob_art.com', artist_id: u1.id)
+a2 = Artwork.create(title: 'BOB', image_url: 'www.BOB_art.com', artist_id: u2.id)
+a3 = Artwork.create(title: 'Bob', image_url: 'www.Bob_art.com', artist_id: u3.id)
+
+artworkshares = ArtworkShare.create([
+  {artwork_id: a1.id, viewer_id: u2.id},
+  {artwork_id: a2.id, viewer_id: u1.id},
+  {artwork_id: a3.id, viewer_id: u3.id}
+])
